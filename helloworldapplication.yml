@@ -1,3 +1,4 @@
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -10,9 +11,10 @@ spec:
     path: helloworldapp
     targetRevision: HEAD
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: https://7EE398324DBEA0B74883866771F26CE3.gr7.ap-southeast-2.eks.amazonaws.com
     namespace: default
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
