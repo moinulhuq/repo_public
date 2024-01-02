@@ -1,0 +1,23 @@
+$ vi helloworldapplication_external.yml
+
+helloworldapplication_external.yml
+----------------------------------
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helloworldapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/moinulhuq/repo_public.git'
+    path: helloworldapp
+    targetRevision: HEAD
+  destination:
+    server: https://7972AE2173A3C8D8F19D9C5D2F3A67E2.gr7.ap-southeast-2.eks.amazonaws.com
+    namespace: default
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
